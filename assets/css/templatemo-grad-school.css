@@ -1732,6 +1732,7 @@ footer p a:hover {
   background: red;
 } */
 @keyframes shake-animation {
+   0% { transform:translate(0,0) }
   1.78571% { transform:translate(8px,0) }
   3.57143% { transform:translate(0,0) }
   5.35714% { transform:translate(8px,0) }
