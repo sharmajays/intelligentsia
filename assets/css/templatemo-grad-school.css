@@ -314,7 +314,6 @@ a.menu-link {
   max-width: 100%;
   max-height: 100vh;
   object-fit: contain;
-  z-index: -1;
 }
 
 #bg-video::-webkit-media-controls {
@@ -323,7 +322,6 @@ a.menu-link {
 
 .video-overlay {
   position: absolute;
-  background-color: rgba(22, 34, 57, 0.85);
   top: 0;
   left: 0;
   bottom: 7px;
@@ -1660,6 +1658,53 @@ footer p a:hover {
   90%
   {
     opacity:0.2;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.fadeinoutlogo2
+{
+  animation: fadeinoutlogo 60s infinite;
+}
+
+@keyframes fadeinoutlogo2
+{
+  0%{
+    opacity:1;
+  }
+  10%{
+    opacity: 1;
+  }
+  20%{
+    opacity: 1;
+  }
+  30%{
+    opacity: 0;
+  }
+  40%{
+    opacity: 0;
+  }
+  50%
+  {
+    opacity: 0;
+  }
+  60%
+  {
+    opacity: 0;
+  }
+  70%
+  {
+    opacity: 0;
+  }
+  80%
+  {
+    opacity: 1;
+  }
+  90%
+  {
+    opacity: 1;
   }
   100%{
     opacity: 1;
