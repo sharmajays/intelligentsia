@@ -1599,11 +1599,14 @@ section.contact form button {
 footer {
   background-color: #152036;
   text-align: center;
+  bottom: 0;
+  position: sticky;
+  z-index: 3;
 }
 
 footer p {
   margin-bottom: 0px;
-  padding: 25px 0px;
+  padding: 18px 0px;
   color: #fff;
   font-size: 13px;
   text-transform: uppercase;
@@ -1740,4 +1743,25 @@ footer p a:hover {
   8.92857% { transform:translate(8px,0) }
   10.71429% { transform:translate(0,0) }
   100% { transform:translate(0,0) }
+}
+
+.smedia{
+  color: #e33c12 !important; 
+  font-weight: bold;
+}
+
+.contactsec{
+  color: white !important; 
+  font-weight: bold !important; 
+  display: flex !important; 
+  flex-direction: row !important; 
+  justify-content: start !important;
+  padding-left: 5%;
+}
+
+iframe {
+  max-height: 100%;
+  min-width: 350px;
+  width: 95%;
+  min-height: 500px;
 }
