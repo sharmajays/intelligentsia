@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>IA ACHIEVCEMENTS</title>
+	<style>
+		.background{
+			position: absolute; 
+            height: 99%; 
+            width: 99%; 
+            background-image: url(assets/images/allCollage.jpg); 
+            background-size: contain !important; 
+            background-position: center; 
+            filter: blur(1px); 
+            z-index: -1; 
+		}
+
+		.book {
+		position: relative;
+		display: flex;
+		margin: auto;
+		width: 50cqmin;
+		height: 70cqmin;
+		/*1* let pointer event go trough pages of lower Z than .book */
+		pointer-events: none;
+		transform-style: preserve-3d;
+		transition: translate 1s;
+		translate: calc(min(var(--c), 1) * 50%) 0%;
+		/* Incline on the X axis for pages preview */
+		rotate: 1 0 0 10deg;
+		box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 8px 26px 0 rgba(0, 0, 0, 0.19);
+		}
+
+		.page {
+		/* PS: Don't go below thickness 0.5 or the pages might transpare */
+		--thickness: 4;
+		flex: none;
+		display: flex;
+		width: 100%;
+		font-size: 2cqmin;
+		/*1* allow pointer events on pages */
+		pointer-events: all;
+		user-select: none;
+		transform-style: preserve-3d;
+		transform-origin: left center;
+		transition:
+			transform 1s,
+			rotate 1s ease-in calc((min(var(--i), var(--c)) - max(var(--i), var(--c))) * 50ms);
+		translate: calc(var(--i) * -100%) 0px 0px;
+		transform: translateZ( calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * .23cqmin)));
+		rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg);
+		}
+
+		.front,
+		.back {
+		position: relative;
+		flex: none;
+		width: 100%;
+		backface-visibility: hidden;
+		overflow: hidden;
+		background-color: #fff;
+		/* Fix backface visibility Firefox: */
+		translate: 0px;
+		}
+
+		.back {
+		translate: -100% 0;
+		rotate: 0 1 0 180deg;
+		}
+
+
+		/* That's it. Your FlipBook customization styles: */
+
+		.book {
+		counter-reset: page -1;
+		& a {
+			color: inherit;
+		}
+		}
+
+		.page {
+		box-shadow: 0em .5em 1em -.2em #00000020;
+		}
+
+		.front,
+		.back {
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: space-between;
+		/* padding: 2em; */
+		border: 1px solid #0002;
+		
+		&:has(img) {
+			padding: 0;
+		}
+		
+		& img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+		
+		&::after {
+			position: absolute;
+			bottom: 1em;
+			counter-increment: page;
+			content: counter(page) ".";
+			font-size: 0.8em;
+		}
+		}
+		.cover {
+		&::after {
+			content: "";
+		}
+		}
+		.front {
+		&::after {
+			right: 1em;
+		}
+		background: linear-gradient(to left, #f7f7f7 80%, #eee 100%);
+		border-radius: .1em .5em .5em .1em;
+		}
+		.back {
+		&::after {
+			left: 1em;
+		}
+		background-image: linear-gradient(to right, #f7f7f7 80%, #eee 100%);
+		border-radius: .5em .1em .1em .5em;
+		}
+
+		.cover {
+		background: radial-gradient(circle farthest-corner at 80% 20%, hsl(150 80% 20% / .3) 0%, hsl(170 60% 10% / .1) 100%),
+		hsl(231, 32%, 29%) url(assets/images/godess.jpg) 50% / contain;
+		color: hsl(200 30% 98%);
+		}
+	</style>
+</head>
+<body>
+	<div class="background">
+	</div>
+
+	<div style="padding-top: 6%;">
+		<div class="book">
+			<div class="page">
+			  <div class="front cover" style="border: 4px solid rgb(184, 14, 14);">
+				<h1></h1>
+				<!-- <p style="color: black; font-weight: bold; backdrop-filter: blur(10px); width: fit-content; border-radius: 25%; padding: 10px;">OUR<br>ACHIEVEMENTS</p> -->
+			  </div>
+			  <div class="back">
+				<!-- <img src="./assets/images/achievements/t1.jpeg"> -->
+			  </div>
+			</div>
+		  
+			<div class="page">
+			  <div class="front">
+				<img src="./assets/images/achievements/t1.jpeg">
+			  </div>
+			  <div class="back">
+				<img src="./assets/images/achievements/t2.jpeg">
+			  </div>
+			</div>
+	
+			<div class="page">
+			  <div class="front">
+				<img src="./assets/images/achievements/t3.jpeg">
+			  </div>
+			  <div class="back">
+				<img src="./assets/images/achievements/t4.jpeg">
+			  </div>
+			</div>
+	
+			<div class="page">
+			  <div class="front">
+				<img src="./assets/images/achievements/t5.jpeg">
+			  </div>
+			  <div class="back">
+				<img src="./assets/images/achievements/t6.jpeg">
+			  </div>
+			</div>
+	
+			<div class="page">
+			  <div class="front">
+				<img src="./assets/images/achievements/s1.jpeg">
+			  </div>
+			  <div class="back">
+				<img src="./assets/images/achievements/s2.jpeg">
+			  </div>
+			</div>
+	
+			<div class="page">
+			  <div class="front">
+				<img src="./assets/images/achievements/s3.jpeg">
+			  </div>
+			  <div class="back">
+				<img src="./assets/images/achievements/s4.jpeg">
+			  </div>
+			</div>
+	
+			<div class="page">
+			  <div class="front">
+				<img src="./assets/images/achievements/s5.jpeg">
+			  </div>
+			  <div class="back">
+				<img src="./assets/images/achievements/s6.jpeg">
+			  </div>
+			</div>
+	
+			<div class="page">
+			  <div class="front">
+				<img src="./assets/images/achievements/s7.jpeg">
+			  </div>
+			  <div class="back">
+				<img src="./assets/images/achievements/s8.jpeg">
+			  </div>
+			</div>
+	
+			<div class="page">
+			  <div class="front">
+				<img src="./assets/images/achievements/s9.jpeg">
+			  </div>
+			  <div class="back">
+				<img src="./assets/images/achievements/s10.jpeg">
+			  </div>
+			</div>
+	
+			<div class="page">
+			  <div class="front">
+				<img src="./assets/images/achievements/s11.jpeg">
+			  </div>
+			  <div class="back">
+				<img src="./assets/images/achievements/s12.jpeg">
+			  </div>
+			</div>
+	
+			<div class="page">
+			  <div class="front">
+				<img src="./assets/images/achievements/s13.jpeg">
+			  </div>
+			  <div class="back">
+				<img src="./assets/images/achievements/s14.jpeg">
+			  </div>
+			</div>
+	
+			<div class="page">
+			  <div class="front">
+				<img src="./assets/images/achievements/s15.jpeg">
+			  </div>
+			  <div class="back">
+				<img src="./assets/images/achievements/s16.jpeg">
+			  </div>
+			</div>
+	
+			<div class="page">
+				<div class="front">
+					<img src="./assets/images/achievements/s17.jpeg">
+				</div>
+				<div class="back">
+					<img src="./assets/images/achievements/s18.jpeg">
+				</div>
+			</div>
+	
+			<div class="page">
+				<div class="front">
+					<!-- <img src="./assets/images/achievements/s17.jpeg"> -->
+				</div>
+				<div class="back">
+					<img src="./assets/images/godess.jpg" style="object-fit: cover;">
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="assets/js/book.js"></script>
+</body>
+</html>
