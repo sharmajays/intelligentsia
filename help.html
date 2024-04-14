@@ -1,11 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta name="viewport" content="width = 1050, user-scalable = no" />
+<script type="text/javascript" src="./vendor/jquery/jquery.min.js"></script>
+<script src="./assets/js/turn.min.js"></script>
+<style>
+    /* Basic sample */
+/* 
+body{
+	overflow:hidden;
+	background-color:#fcfcfc;
+	margin:0;
+	padding:0;
+} */
+
+.flipbook-viewport{
+	overflow:hidden;
+	width:100%;
+	height:100%;
+}
+
+.flipbook-viewport .container{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:auto;
+}
+
+.flipbook-viewport .flipbook{
+	width:922px;
+	height:600px;
+	left:-461px;
+	top:-300px;
+}
+
+.flipbook-viewport .page{
+	width:461px;
+	height:600px;
+	background-color:white;
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+}
+
+.flipbook .page{
+	-webkit-box-shadow:0 0 20px rgba(0,0,0,0.2);
+	box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.flipbook-viewport .page img{
+	-webkit-user-select: none;
+	user-select: none;
+	margin:0;
+}
+
+.flipbook-viewport .shadow{
+	-webkit-transition: -webkit-box-shadow 0.5s;
+	transition: box-shadow 0.5s;
+
+	-webkit-box-shadow:0 0 20px #ccc;
+	box-shadow:0 0 20px #ccc;
+}
+
+.aimg{
+    object-fit: contain !important;
+}
+.aimg2{
+    object-fit: contain !important;
+    border-left: 8px solid black;
+}
+
+
+</style>
 </head>
 <body>
-    <img src="assets/images/icon2.png" style="">
+
+<div class="flipbook-viewport">
+	<div class="container">
+		<div class="flipbook">
+			<img class="aimg" src="assets/images/bookCover.jpg">
+            <img class="aimg" src="assets/images/achievements/s2.jpeg">
+            <img class="aimg2" src="assets/images/achievements/s3.jpeg">
+            <img class="aimg" src="assets/images/achievements/s4.jpeg">
+            <img class="aimg2" src="assets/images/achievements/s1.jpeg">
+            <img class="aimg" src="assets/images/achievements/s2.jpeg">
+            <img class="aimg2" src="assets/images/achievements/s3.jpeg">
+            <img class="aimg" src="assets/images/achievements/s4.jpeg">
+            <img class="aimg2" src="assets/images/achievements/s1.jpeg">
+            <img class="aimg" src="assets/images/achievements/s2.jpeg">
+            <img class="aimg2" src="assets/images/achievements/s3.jpeg">
+			<img class="aimg" src="assets/images/bookCover.jpg">
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+function loadApp() {
+
+	// Create the flipbook
+
+	$('.flipbook').turn({
+			// Width
+
+			width:922,
+			
+			// Height
+
+			height:600,
+
+			// Elevation
+
+			elevation: 50,
+			
+			// Enable gradients
+
+			gradients: true,
+			
+			// Auto center this flipbook
+
+			autoCenter: true
+
+	});
+}
+
+// Load turn.js
+
+loadApp()
+
+</script>
+
 </body>
 </html>
